@@ -1,0 +1,170 @@
+name: Deploy Serenity - Staging
+
+on:
+  push:
+    branches:
+      - develop
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: serenity-staging
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy Staging
+    runs-on: ubuntu-latest
+
+    environment: staging
+
+    timeout-minutes: 15
+
+    env:
+      SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+      SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+      SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+
+      REMOTE_ROOT: /home/u104003371/domains/serenitybodyworks.site
+      REMOTE_PUBLIC: /home/u104003371/domains/serenitybodyworks.site/public_html/staging
+      REMOTE_BACKEND: /home/u104003371/domains/serenitybodyworks.site/staging-backend
+
+    steps:
+      # ------------------------------------------------------
+      # 1. Checkout
+      # ------------------------------------------------------
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ------------------------------------------------------
+      # 2. Validate project structure
+      # ------------------------------------------------------
+
+      - name: Validate project structure
+        run: |
+          set -euo pipefail
+
+          test -f public/index.html
+          test -d backend
+
+          echo "Project structure validated."
+
+      # ------------------------------------------------------
+      # 3. Configure SSH
+      # ------------------------------------------------------
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+          cat > ~/.ssh/config <<EOF
+          Host serenity-hostinger
+              HostName ${SSH_HOST}
+              User ${SSH_USER}
+              Port ${SSH_PORT}
+              IdentityFile ~/.ssh/id_ed25519
+              IdentitiesOnly yes
+              BatchMode yes
+              StrictHostKeyChecking yes
+          EOF
+
+          chmod 600 ~/.ssh/config
+
+      # ------------------------------------------------------
+      # 4. Test SSH connection
+      # ------------------------------------------------------
+
+      - name: Test SSH connection
+        run: |
+          set -euo pipefail
+
+          ssh serenity-hostinger "echo 'SSH connection successful'"
+
+      # ------------------------------------------------------
+      # 5. Validate remote directories
+      # ------------------------------------------------------
+
+      - name: Validate remote directories
+        run: |
+          set -euo pipefail
+
+          ssh serenity-hostinger \
+            "test -d '$REMOTE_PUBLIC' && \
+             test -d '$REMOTE_BACKEND' && \
+             test -d '$REMOTE_ROOT'"
+
+          echo "Remote directories validated."
+
+      # ------------------------------------------------------
+      # 6. Validate rsync
+      # ------------------------------------------------------
+
+      - name: Validate rsync availability
+        run: |
+          set -euo pipefail
+
+          command -v rsync
+          ssh serenity-hostinger "command -v rsync"
+
+      # ------------------------------------------------------
+      # 7. Deploy private backend
+      # ------------------------------------------------------
+
+      - name: Deploy backend
+        run: |
+          set -euo pipefail
+
+          rsync -az \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='storage/' \
+            --exclude='logs/' \
+            --exclude='vendor/' \
+            --exclude='*.log' \
+            -e "ssh" \
+            backend/ \
+            "serenity-hostinger:${REMOTE_BACKEND}/"
+
+      # ------------------------------------------------------
+      # 8. Deploy public frontend
+      # ------------------------------------------------------
+
+      - name: Deploy frontend
+        run: |
+          set -euo pipefail
+
+          rsync -az \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='.git/' \
+            --exclude='*.log' \
+            -e "ssh" \
+            public/ \
+            "serenity-hostinger:${REMOTE_PUBLIC}/"
+
+      # ------------------------------------------------------
+      # 9. Deployment completed
+      # ------------------------------------------------------
+
+      - name: Deployment completed
+        run: |
+          echo "Serenity staging deployment completed."
+          echo "Environment: staging"
+          echo "Branch: develop"
+          echo "URL: https://staging.serenitybodyworks.site"
