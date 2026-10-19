@@ -1,0 +1,148 @@
+/* =========================================
+   RESET
+   ========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   LAYOUT
+   ========================================= */
+
+.container {
+    width: min(
+        calc(100% - 48px),
+        1200px
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+main {
+    width: 100%;
+}
+
+
+/* =========================================
+   SECTIONS
+   ========================================= */
+
+section {
+    width: 100%;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 28px;
+
+    border: 1px solid transparent;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.button-primary {
+    background-color: var(--color-gold);
+    color: #ffffff;
+}
+
+.button-primary:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+:focus-visible {
+    outline: 2px solid var(--color-aqua);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: min(
+            calc(100% - 32px),
+            1200px
+        );
+    }
+
+}

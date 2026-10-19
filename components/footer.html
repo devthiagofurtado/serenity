@@ -1,0 +1,193 @@
+
+<footer class="site-footer">
+    <div class="container">
+
+        <div class="footer-main">
+
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a
+                    class="footer-logo"
+                    href="./"
+                    aria-label="Serenity Bodywork Therapeutics - Home"
+                >
+                    <img
+                        src="./assets/images/logo/serenity--logo.svg"
+                        alt="Serenity Bodywork Therapeutics"
+                        loading="lazy"
+                    >
+                </a>
+
+                <p
+                    class="footer-description"
+                    data-i18n="footer.description"
+                >
+                    Therapeutic care to help you reconnect
+                    with your body.
+                </p>
+            </div>
+
+            <!-- Navigation -->
+            <nav
+                class="footer-navigation"
+                aria-label="Footer navigation"
+            >
+                <h2 data-i18n="footer.explore">
+                    Explore
+                </h2>
+
+                <ul>
+                    <li>
+                        <a href="#about" data-i18n="header.about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services" data-i18n="header.services">
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#benefits" data-i18n="header.benefits">
+                            Benefits
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact" data-i18n="header.contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Booking -->
+            <div class="footer-booking">
+                <h2 data-i18n="footer.readyTitle">
+                    Make time for yourself
+                </h2>
+
+                <p data-i18n="footer.readyDescription">
+                    Your well-being deserves a moment of care.
+                </p>
+
+                <!-- Desktop: direct WhatsApp -->
+                <a
+                    class="button button-primary footer-booking-desktop"
+                    href="https://wa.me/17865664135?text=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="header.book"
+                >
+                    Book a Session
+                </a>
+
+                <!-- Mobile: WhatsApp / SMS -->
+                <div class="footer-booking-mobile">
+
+                    <button
+                        type="button"
+                        class="button button-primary footer-booking-button"
+                        data-booking-toggle
+                        aria-expanded="false"
+                        aria-controls="footer-booking-options"
+                        data-i18n="header.book"
+                    >
+                        Book a Session
+                    </button>
+
+                    <div
+                        id="footer-booking-options"
+                        class="mobile-booking-options"
+                        hidden
+                    >
+                        <div class="mobile-booking-options-header">
+                            <span
+                                class="mobile-booking-eyebrow"
+                                data-i18n="header.bookingOptionsEyebrow"
+                            >
+                                LET'S CONNECT
+                            </span>
+
+                            <p
+                                class="mobile-booking-title"
+                                data-i18n="header.bookingOptionsTitle"
+                            >
+                                How would you like to reach us?
+                            </p>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <a
+                            href="https://wa.me/17865664135?text=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                            class="mobile-booking-option"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span class="mobile-booking-option-icon">
+                                <i data-lucide="message-circle"></i>
+                            </span>
+
+                            <span class="mobile-booking-option-content">
+                                <strong>WhatsApp Business</strong>
+
+                                <small data-i18n="booking.social.whatsapp">
+                                    Chat with Shirlei
+                                </small>
+                            </span>
+
+                            <span
+                                class="mobile-booking-option-arrow"
+                                aria-hidden="true"
+                            >
+                                &#8599;
+                            </span>
+                        </a>
+
+                        <!-- SMS -->
+                        <a
+                            href="sms:+17865664135?body=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                            class="mobile-booking-option"
+                        >
+                            <span class="mobile-booking-option-icon">
+                                <i data-lucide="message-square-text"></i>
+                            </span>
+
+                            <span class="mobile-booking-option-content">
+                                <strong>Text Message</strong>
+
+                                <small data-i18n="booking.social.sms">
+                                    Send us an SMS
+                                </small>
+                            </span>
+
+                            <span
+                                class="mobile-booking-option-arrow"
+                                aria-hidden="true"
+                            >
+                                &#8599;
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+            <p>
+                © <span id="footer-year"></span>
+                Serenity Bodywork Therapeutics
+            </p>
+
+            <p data-i18n="footer.copyright">
+                All rights reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>

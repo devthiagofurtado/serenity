@@ -1,0 +1,672 @@
+
+<section
+    id="contact"
+    class="booking-section"
+    aria-labelledby="booking-title"
+>
+    <div class="container">
+
+        <!-- Section heading -->
+        <header class="booking-header">
+            <p class="booking-eyebrow" data-i18n="booking.eyebrow">
+                Contact & Booking
+            </p>
+
+            <h2
+                id="booking-title"
+                class="booking-title"
+                data-i18n="booking.title"
+            >
+                Your moment of serenity starts here.
+            </h2>
+
+            <p
+                class="booking-description"
+                data-i18n="booking.description"
+            >
+                Choose your preferred date and take the first
+                step toward a personalized massage experience.
+            </p>
+
+            <span class="booking-divider" aria-hidden="true"></span>
+        </header>
+
+        <!-- Appointment calendar -->
+        
+        <div class="booking-calendar-wrapper">
+
+            <div class="booking-calendar">
+
+                <div class="booking-calendar-header">
+
+                    <div class="booking-calendar-heading">
+                        <p
+                            class="booking-calendar-eyebrow"
+                            data-i18n="booking.calendar.eyebrow"
+                        >
+                            Select a Date
+                        </p>
+
+                        <h3
+                            id="booking-calendar-month"
+                            class="booking-calendar-month"
+                            aria-live="polite"
+                        ></h3>
+                    </div>
+
+                    <div class="booking-calendar-navigation">
+
+                        <button
+                            type="button"
+                            id="booking-prev-month"
+                            class="booking-calendar-nav"
+                            aria-label="Previous month"
+                            data-i18n-aria-label="booking.previousMonth"
+                            disabled
+                        >
+                            <span aria-hidden="true">&#8249;</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            id="booking-next-month"
+                            class="booking-calendar-nav"
+                            aria-label="Next month"
+                            data-i18n-aria-label="booking.nextMonth"
+                        >
+                            <span aria-hidden="true">&#8250;</span>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div
+                    id="booking-calendar-weekdays"
+                    class="booking-calendar-weekdays"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    id="booking-calendar-days"
+                    class="booking-calendar-days"
+                    role="group"
+                    aria-label="Available appointment dates"
+                    data-i18n-aria-label="booking.availableDates"
+                ></div>
+
+                <div class="booking-calendar-footer">
+
+                    <div class="booking-calendar-legend">
+                        <span
+                            class="booking-legend-dot booking-legend-selected"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span data-i18n="booking.selected">
+                            Selected date
+                        </span>
+                    </div>
+
+                    <div class="booking-calendar-legend">
+                        <span
+                            class="booking-legend-dot booking-legend-disabled"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span data-i18n="booking.unavailable">
+                            Unavailable
+                        </span>
+                    </div>
+
+                </div>
+
+                <p
+                    class="booking-calendar-hint"
+                    data-i18n="booking.calendarHint"
+                >
+                    Select a future date to request an appointment.
+                </p>
+
+            </div>
+
+            <!-- Appointment request form -->
+            <div
+                id="booking-form-wrapper"
+                class="booking-form-wrapper"
+                hidden
+            >
+
+                <div class="booking-selected-date">
+
+                    <div>
+                        <p
+                            class="booking-selected-label"
+                            data-i18n="booking.selectedDate"
+                        >
+                            Your Preferred Date
+                        </p>
+
+                        <p
+                            id="booking-selected-date-text"
+                            class="booking-selected-value"
+                            aria-live="polite"
+                        ></p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="booking-change-date"
+                        class="booking-change-date"
+                        data-i18n="booking.changeDate"
+                    >
+                        Change date
+                    </button>
+
+                </div>
+
+                <div class="booking-form-header">
+
+                    <h3 data-i18n="booking.form.title">
+                        Tell us about your session
+                    </h3>
+
+                    <p data-i18n="booking.form.description">
+                        Share a few details so we can prepare
+                        a personalized experience for you.
+                    </p>
+
+                </div>
+
+                <form id="booking-request-form">
+
+                    <input
+                        type="hidden"
+                        id="booking-date"
+                        name="date"
+                        required
+                    >
+
+                    <div class="booking-form-grid">
+
+                        <!-- Full name -->
+                        <div class="booking-field">
+
+                            <label
+                                for="booking-name"
+                                data-i18n="booking.form.name"
+                            >
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="booking-name"
+                                name="name"
+                                autocomplete="name"
+                                maxlength="120"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- Phone number -->
+                        <div class="booking-field">
+
+                            <label
+                                for="booking-phone"
+                                data-i18n="booking.form.phone"
+                            >
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="booking-phone"
+                                name="phone"
+                                autocomplete="tel"
+                                maxlength="30"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- Preferred contact method -->
+                        <div class="booking-field booking-field-full">
+
+                            <fieldset class="booking-contact-method">
+
+                                <legend
+                                    data-i18n="booking.form.contactMethod"
+                                >
+                                    How would you prefer to be contacted?
+                                </legend>
+
+                                <p
+                                    class="booking-contact-method-description"
+                                    data-i18n="booking.form.contactMethodHelp"
+                                >
+                                    Choose how you'd like us to follow up
+                                    on your appointment request.
+                                </p>
+
+                                <div class="booking-contact-method-options">
+
+                                    <!-- SMS -->
+                                    <label class="booking-contact-method-option">
+
+                                        <input
+                                            type="radio"
+                                            name="contactMethod"
+                                            value="sms"
+                                            checked
+                                            required
+                                        >
+
+                                        <i
+                                            data-lucide="message-square-text"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                        <span data-i18n="booking.form.contactSms">
+                                            Text Message (SMS)
+                                        </span>
+
+                                    </label>
+
+                                    <!-- Phone call -->
+                                    <label class="booking-contact-method-option">
+
+                                        <input
+                                            type="radio"
+                                            name="contactMethod"
+                                            value="call"
+                                        >
+
+                                        <i
+                                            data-lucide="phone"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                        <span data-i18n="booking.form.contactCall">
+                                            Phone Call
+                                        </span>
+
+                                    </label>
+
+                                    <!-- WhatsApp -->
+                                    <label class="booking-contact-method-option">
+
+                                        <input
+                                            type="radio"
+                                            name="contactMethod"
+                                            value="whatsapp"
+                                        >
+
+                                        <i
+                                            data-lucide="message-circle"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                        <span>WhatsApp</span>
+
+                                    </label>
+
+                                    <!-- Email -->
+                                    <label class="booking-contact-method-option">
+
+                                        <input
+                                            type="radio"
+                                            name="contactMethod"
+                                            value="email"
+                                        >
+
+                                        <i
+                                            data-lucide="mail"
+                                            aria-hidden="true"
+                                        ></i>
+
+                                        <span>Email</span>
+
+                                    </label>
+
+                                </div>
+
+                                <!-- Visible when Email is selected -->
+                                <div class="booking-contact-email" hidden>
+
+                                    <label
+                                        for="booking-email"
+                                        data-i18n="booking.form.email"
+                                    >
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="booking-email"
+                                        name="email"
+                                        autocomplete="email"
+                                        maxlength="254"
+                                    >
+
+                                </div>
+
+                            </fieldset>
+
+                        </div>
+
+                        <!-- Massage service -->
+                        <div class="booking-field">
+
+                            <label
+                                for="booking-service"
+                                data-i18n="booking.form.service"
+                            >
+                                Massage Service
+                            </label>
+
+                            <select
+                                id="booking-service"
+                                name="service"
+                                required
+                            >
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                    data-i18n="booking.form.selectService"
+                                >
+                                    Select a service
+                                </option>
+
+                                <option
+                                    value="relax"
+                                    data-i18n="services.relax.title"
+                                >
+                                    Relax Massage
+                                </option>
+
+                                <option
+                                    value="deepTissue"
+                                    data-i18n="services.deepTissue.title"
+                                >
+                                    Deep Tissue Massage
+                                </option>
+
+                                <option
+                                    value="swedish"
+                                    data-i18n="services.swedish.title"
+                                >
+                                    Swedish Massage
+                                </option>
+
+                                <option
+                                    value="sports"
+                                    data-i18n="services.sports.title"
+                                >
+                                    Sports Massage
+                                </option>
+
+                                <option
+                                    value="lymphatic"
+                                    data-i18n="services.lymphatic.title"
+                                >
+                                    Lymphatic Drainage Massage
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Preferred time -->
+                        <div class="booking-field">
+
+                            <label
+                                for="booking-period"
+                                data-i18n="booking.form.period"
+                            >
+                                Preferred Time
+                            </label>
+
+                            <select
+                                id="booking-period"
+                                name="period"
+                                required
+                            >
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                    data-i18n="booking.form.selectPeriod"
+                                >
+                                    Select a time
+                                </option>
+
+                                <option
+                                    value="morning"
+                                    data-i18n="booking.form.morning"
+                                >
+                                    Morning
+                                </option>
+
+                                <option
+                                    value="afternoon"
+                                    data-i18n="booking.form.afternoon"
+                                >
+                                    Afternoon
+                                </option>
+
+                                <option
+                                    value="evening"
+                                    data-i18n="booking.form.evening"
+                                >
+                                    Evening
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Location -->
+                        <div class="booking-field booking-field-full">
+
+                            <label
+                                for="booking-location"
+                                data-i18n="booking.form.location"
+                            >
+                                City or ZIP Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="booking-location"
+                                name="location"
+                                autocomplete="postal-code"
+                                maxlength="120"
+                                required
+                            >
+
+                        </div>
+
+                        <!-- Additional notes -->
+                        <div class="booking-field booking-field-full">
+
+                            <label
+                                for="booking-notes"
+                                data-i18n="booking.form.notes"
+                            >
+                                Additional Notes (Optional)
+                            </label>
+
+                            <textarea
+                                id="booking-notes"
+                                name="notes"
+                                rows="4"
+                                maxlength="1000"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Form actions -->
+                    <div class="booking-form-actions">
+
+                        <button
+                            type="submit"
+                            id="booking-submit"
+                            class="booking-submit-button"
+                            data-i18n="booking.form.submit"
+                        >
+                            Request Appointment
+                        </button>
+
+                        <p
+                            class="booking-form-disclaimer"
+                            data-i18n="booking.form.disclaimer"
+                        >
+                            Your appointment is not confirmed
+                            until we contact you.
+                        </p>
+
+                    </div>
+
+                    <p
+                        id="booking-form-feedback"
+                        class="booking-form-feedback"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    ></p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- Direct contact channels -->
+        
+        <div class="booking-social">
+
+            <div class="booking-social-header">
+                <h3 data-i18n="booking.social.title">
+                    Prefer to connect directly?
+                </h3>
+
+                <p data-i18n="booking.social.description">
+                    We're just a message or phone call away.
+                </p>
+            </div>
+
+            <div class="booking-social-links">
+
+                <!-- SMS - Primary contact -->
+                <a
+                    href="sms:+17865664135?body=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                    class="booking-social-link booking-sms"
+                    aria-label="Send Serenity an SMS"
+                    data-i18n-aria-label="booking.social.smsAria"
+                >
+                    <span class="booking-social-icon" aria-hidden="true">
+                        <i data-lucide="message-square-text"></i>
+                    </span>
+
+                    <span class="booking-social-content">
+                        <strong>Text Us (SMS)</strong>
+
+                        <span data-i18n="booking.social.sms">
+                            Send a text message
+                        </span>
+                    </span>
+
+                    <span class="booking-social-arrow" aria-hidden="true">
+                        &#8599;
+                    </span>
+                </a>
+
+                <!-- Call Us -->
+                <a
+                    href="tel:+17865664135"
+                    class="booking-social-link booking-call"
+                    aria-label="Call Serenity at +1 (786) 566-4135"
+                    data-i18n-aria-label="booking.social.callAria"
+                >
+                    <span class="booking-social-icon" aria-hidden="true">
+                        <i data-lucide="phone"></i>
+                    </span>
+
+                    <span class="booking-social-content">
+                        <strong data-i18n="booking.social.callTitle">
+                            Call Us
+                        </strong>
+
+                        <span>
+                            +1 (786) 566-4135
+                        </span>
+                    </span>
+
+                    <span class="booking-social-arrow" aria-hidden="true">
+                        &#8599;
+                    </span>
+                </a>
+
+                <!-- WhatsApp Business -->
+                <a
+                    href="https://wa.me/17865664135?text=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                    class="booking-social-link booking-whatsapp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Chat with Serenity on WhatsApp"
+                    data-i18n-aria-label="booking.social.whatsappAria"
+                >
+                    <span class="booking-social-icon" aria-hidden="true">
+                        <i data-lucide="message-circle"></i>
+                    </span>
+
+                    <span class="booking-social-content">
+                        <strong>WhatsApp Business</strong>
+
+                        <span data-i18n="booking.social.whatsapp">
+                            Chat with Shirlei
+                        </span>
+                    </span>
+
+                    <span class="booking-social-arrow" aria-hidden="true">
+                        &#8599;
+                    </span>
+                </a>
+
+                <!-- Instagram -->
+                <a
+                    href="https://www.instagram.com/serenity_bodyworks_/"
+                    class="booking-social-link booking-instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Serenity on Instagram"
+                    data-i18n-aria-label="booking.social.instagramAria"
+                >
+                    <span class="booking-social-icon" aria-hidden="true">
+                        <i data-lucide="instagram"></i>
+                    </span>
+
+                    <span class="booking-social-content">
+                        <strong>Instagram</strong>
+
+                        <span data-i18n="booking.social.instagram">
+                            Follow our journey
+                        </span>
+                    </span>
+
+                    <span class="booking-social-arrow" aria-hidden="true">
+                        &#8599;
+                    </span>
+                </a>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>

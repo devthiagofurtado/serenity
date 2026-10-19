@@ -1,0 +1,42 @@
+:root {
+    /* Brand */
+    --color-white: #ffffff;
+    --color-aqua: #7dc4bd;
+    --color-gold: #bd8a27;
+    --color-greige: #81755d;
+
+    /* Text */
+    --color-text: #4f493d;
+    --color-text-muted: #746d61;
+
+    /* Background */
+    --color-background: #ffffff;
+    --color-background-soft: #f5f7f4;
+
+    /* Typography */
+    --font-heading: "Cormorant Garamond", Georgia, serif;
+    --font-body: "Inter", Arial, sans-serif;
+
+    /* Layout */
+    --container-width: 1180px;
+
+    /* Border radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-pill: 999px;
+
+    /* Shadows */
+    --shadow-sm: 0 8px 24px rgba(90, 80, 60, 0.06);
+    --shadow-md: 0 16px 38px rgba(90, 80, 60, 0.1);
+
+    /* Header */
+    --header-background: var(--color-aqua);
+    --header-text: var(--color-greige);
+    --header-text-hover: var(--color-white);
+    --header-border: rgba(129, 117, 93, 0.18);
+
+    /* Menu mobile */
+    --menu-background: var(--header-background);
+    --menu-text: var(--header-text);
+    --menu-text-hover: var(--header-text-hover);
+}

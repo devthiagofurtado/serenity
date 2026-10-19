@@ -1,0 +1,248 @@
+<header class="site-header">
+
+    <div class="container header-container">
+
+        <!-- Logo -->
+        <a
+            class="site-logo"
+            href="./"
+            aria-label="Serenity Bodywork Therapeutics - Home"
+        >
+            <img
+                src="./assets/images/logo/serenity--logo.svg"
+                alt="Serenity Bodywork Therapeutics"
+            >
+        </a>
+
+
+        <!-- Mobile menu -->
+        <button
+            class="mobile-menu-button"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <!-- Navigation -->
+        <nav
+            id="main-navigation"
+            class="main-navigation"
+            aria-label="Main navigation"
+        >
+
+            <ul class="navigation-list">
+
+                <li>
+                    <a
+                        class="navigation-link active"
+                        href="#hero"
+                        data-i18n="header.home"
+                    >
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        class="navigation-link"
+                        href="#about"
+                        data-i18n="header.about"
+                    >
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        class="navigation-link"
+                        href="#services"
+                        data-i18n="header.services"
+                    >
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        class="navigation-link"
+                        href="#benefits"
+                        data-i18n="header.benefits"
+                    >
+                        Benefits
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        class="navigation-link"
+                        href="#contact"
+                        data-i18n="header.contact"
+                    >
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- Mobile actions -->
+            <div class="mobile-menu-actions">
+
+                <div
+                    class="language-selector"
+                    data-i18n-aria-label="header.languageLabel"
+                >
+
+                    <button
+                        class="language-button active"
+                        type="button"
+                        data-language="en"
+                    >
+                        EN
+                    </button>
+
+                    <span class="language-divider">|</span>
+
+                    <button
+                        class="language-button"
+                        type="button"
+                        data-language="es"
+                    >
+                        ES
+                    </button>
+
+                </div>
+
+
+                <div class="mobile-booking-wrapper">
+
+                    <button
+                        class="button button-primary mobile-booking-button"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="mobile-booking-options"
+                        data-i18n="header.book"
+                        data-booking-toggle
+                    >
+                        Book a Session
+                    </button>
+
+                    
+                    <div
+                        id="mobile-booking-options"
+                        class="mobile-booking-options"
+                        hidden
+                    >
+                        <div class="mobile-booking-options-header">
+                            <span class="mobile-booking-eyebrow">
+                                LET'S CONNECT
+                            </span>
+
+                            <p class="mobile-booking-title">
+                                How would you like to reach us?
+                            </p>
+                        </div>
+
+                        <!-- WhatsApp Business -->
+                        <a
+                            href="https://wa.me/17865664135?text=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                            class="mobile-booking-option"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span class="mobile-booking-option-icon">
+                                <i data-lucide="message-circle"></i>
+                            </span>
+
+                            <span class="mobile-booking-option-content">
+                                <strong>WhatsApp Business</strong>
+                                <small data-i18n="booking.social.whatsapp">
+                                    Chat with Shirlei
+                                </small>
+                            </span>
+
+                            <span class="mobile-booking-option-arrow" aria-hidden="true">
+                                &#8599;
+                            </span>
+                        </a>
+
+                        <!-- SMS -->
+                        <a
+                            href="sms:+17865664135?body=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                            class="mobile-booking-option"
+                        >
+                            <span class="mobile-booking-option-icon">
+                                <i data-lucide="message-square-text"></i>
+                            </span>
+
+                            <span class="mobile-booking-option-content">
+                                <strong>Text Message</strong>
+                                <small data-i18n="booking.social.sms">
+                                    Send us an SMS
+                                </small>
+                            </span>
+
+                            <span class="mobile-booking-option-arrow" aria-hidden="true">
+                                &#8599;
+                            </span>
+                        </a>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- Desktop actions -->
+        <div class="header-actions">
+
+            <div
+                class="language-selector"
+                data-i18n-aria-label="header.languageLabel"
+            >
+
+                <button
+                    class="language-button active"
+                    type="button"
+                    data-language="en"
+                >
+                    EN
+                </button>
+
+                <span class="language-divider">|</span>
+
+                <button
+                    class="language-button"
+                    type="button"
+                    data-language="es"
+                >
+                    ES
+                </button>
+
+            </div>
+
+
+            <a
+                class="button button-primary header-booking-button"
+                href="https://wa.me/17865664135?text=Hi%21%20I%27d%20like%20to%20book%20a%20massage%20with%20Serenity."
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="header.book"
+            >
+                Book a Session
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
